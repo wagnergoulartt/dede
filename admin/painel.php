@@ -111,10 +111,11 @@ endif;
                 </div>
                 <ul class="nav" id="side-menu">
 
-                    <li class="devider"></li>
-                    <li> <a href="<?=$site?>admin/painel.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Painel</span></a> </li>
-                    <li> <a href="<?=$site;?>admin/painel.php?exe=configuracoes" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Configurações</span></a> </li>
-                    <li> <a href="<?=$site;?>admin/painel.php?exe=mudar-login" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Alterar dados de login</span></a> </li>
+                <li class="devider"></li>
+                <li> <a href="<?=$site?>admin/painel.php" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Painel</span></a> </li>
+                <li> <a href="<?=$site;?>admin/painel.php?exe=configuracoes" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Configurações</span></a> </li>
+                <li> <a href="<?=$site;?>admin/painel.php?exe=criarloja" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Criar Loja</span></a> </li>
+                <li> <a href="<?=$site;?>admin/painel.php?exe=mudar-login" class="waves-effect"><i  class="mdi mdi-settings fa-fw"></i> <span class="hide-menu">Alterar dados de login</span></a> </li>
                 </ul>
             </div>
         </div>
