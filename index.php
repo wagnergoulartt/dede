@@ -87,241 +87,195 @@ else:
 		
 		<link href="<?=$site;?>css/icheck/icheck-material.css" rel="stylesheet">
 		
-
-		
-
-
 		<style type="text/css">
-			@media (min-width: 768px) {
-				.omb_row-sm-offset-3 div:first-child[class*="col-"] {
-					margin-left: 25%;
-				}
-			}
+			/* --- [MODERN HEADER REDESIGN V12 - FINAL] --- */
+            
+            /* Body Adjustment for Fixed Header */
+            body {
+                padding-top: 70px; /* Space for the fixed header */
+            }
 
-			.omb_login .omb_authTitle {
-				text-align: center;
-				line-height: 300%;
-			}
+            /* Navigation Header */
+            header {
+                position: fixed !important; /* Keep it fixed */
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                background-color: transparent;
+                box-shadow: none;
+                height: 70px; /* Fixed height for the header */
+                padding: 0;
+                display: flex;
+                align-items: center;
+            }
 
-			.omb_login .omb_socialButtons a {
-				color: white; // In yourUse @body-bg 
-				opacity:0.9;
-			}
-			.omb_login .omb_socialButtons a:hover {
-				color: white;
-				opacity:1;    	
-			}
+            header.scrolled {
+                background-color: #ffffff;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            header.scrolled .main-menu ul > li > a {
+                 color: #333;
+            }
 
-			.omb_login .omb_loginOr {
-				position: relative;
-				font-size: 1.5em;
-				color: #aaa;
-				margin-top: 1em;
-				margin-bottom: 1em;
-				padding-top: 0.5em;
-				padding-bottom: 0.5em;
-			}
-			.omb_login .omb_loginOr .omb_hrOr {
-				background-color: #cdcdcd;
-				height: 1px;
-				margin-top: 0px !important;
-				margin-bottom: 0px !important;
-			}
-			.omb_login .omb_loginOr .omb_spanOr {
-				display: block;
-				position: absolute;
-				left: 50%;
-				top: -0.6em;
-				margin-left: -1.5em;
-				background-color: white;
-				width: 3em;
-				text-align: center;
-			}			
+            header.scrolled .cmn-toggle-switch span,
+            header.scrolled .cmn-toggle-switch span::before,
+            header.scrolled .cmn-toggle-switch span::after {
+                background: #333;
+            }
 
-			.omb_login .omb_loginForm .input-group.i {
-				width: 2em;
-			}
-			.omb_login .omb_loginForm  .help-block {
-				color: red;
-			}
+            /* SubHeader Section (Hero Banner) */
+            .hero-section {
+                position: relative;
+                min-height: 350px;
+                background-image: url(<?=(!empty($img_header) ? $site."uploads/".$img_header : $site.'img/sub_header.jpg');?>);
+                background-size: cover;
+                background-position: center center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: #fff;
+            }
 
+            /* Dark overlay for text readability */
+            .hero-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3); /* Lighter overlay */
+                z-index: 1;
+            }
 
-			@media (min-width: 768px) {
-				.omb_login .omb_forgotPwd {
-					text-align: right;
-					margin-top:10px;
-				}		
-			}
+            /* Content inside the hero banner */
+            #subheader {
+                position: relative;
+                z-index: 2;
+                padding: 20px;
+                width: 100%;
+            }
 
-			#whatsapp{
-				position:fixed;
-				width:60px;
-				height:60px;
-				right:10px;
-				bottom:10px;
-				display:block;
-				z-index:1000000;
-			}
-			.cart-count{
-				display: inline-block;
-				position: absolute;
-				top: 0;
-				right: 0;
-				background: #ff2646;
-				color: #fff;
-				padding: 4px 10px;
-				border-radius: 100px;
-				font-size: 10px;
-				text-shadow: 0 1px 2px rgba(0,0,0,.1);
-				box-shadow: 0 2px 4px rgba(0,0,0,.1);
-				z-index: 10;
-				text-align: center;
-				opacity: 1;
-				transition: .33s cubic-bezier(0.34, 0.13, 0.34, 1.43);
-			}
+            #sub_content {
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            
+            /* Main Logo */
+            #thumb {
+                width: 180px;
+                height: 180px;
+                margin: 0 auto 20px auto;
+            }
 
+            #thumb img {
+                width: 100%;
+                height: 100%;
+                border-radius: 0; /* No rounded corners */
+                border: none; /* No border */
+                box-shadow: none; /* No shadow */
+                object-fit: cover;
+            }
+            
+            /* Restaurant Name */
+            #sub_content h1 {
+                font-size: 3.5rem;
+                font-weight: 900;
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+                margin-bottom: 15px;
+            }
 
-			/*--thank you pop starts here--*/
-			.thank-you-pop{
-				width:100%;
-				padding:20px;
-				text-align:center;
-			}
-			.thank-you-pop img{
-				width:76px;
-				height:auto;
-				margin:0 auto;
-				display:block;
-				margin-bottom:25px;
-			}
+            /* Status (Open/Closed) */
+            .status-badge {
+                display: inline-block;
+                padding: 8px 20px;
+                font-size: 1rem;
+                font-weight: 700;
+                color: #fff;
+                border-radius: 50px;
+            }
+            .status-open {
+                background-color: #28a745; /* Green */
+            }
+            .status-closed {
+                background-color: #dc3545; /* Red */
+            }
+            
+            /* Info Bar below Hero */
+            .info-bar {
+                background-color: #fff;
+                padding: 15px 0;
+                text-align: center;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+                position: relative;
+                z-index: 5;
+            }
+            .info-bar .info-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap; 
+            }
+            .info-bar .info-item {
+                padding: 5px 25px; 
+            }
+            .info-bar .info-item a {
+                color: #333;
+                font-weight: 700;
+                text-decoration: none;
+                font-size: 1.4rem; 
+                transition: color 0.2s ease-in-out;
+                display: flex;
+                align-items: center;
+            }
+            .info-bar .info-item a:hover {
+                color: #34AF23; 
+            }
+            .info-bar .info-item i {
+                font-size: 1.6rem; 
+                margin-right: 10px;
+            }
 
-			.thank-you-pop h1{
-				font-size: 42px;
-				margin-bottom: 25px;
-				color:#5C5C5C;
-			}
-			.thank-you-pop p{
-				font-size: 20px;
-				margin-bottom: 27px;
-				color:#5C5C5C;
-			}
-			.thank-you-pop h3.cupon-pop{
-				font-size: 25px;
-				margin-bottom: 40px;
-				color:#222;
-				display:inline-block;
-				text-align:center;
-				padding:10px 20px;
-				border:2px dashed #222;
-				clear:both;
-				font-weight:normal;
-			}
-			.thank-you-pop h3.cupon-pop span{
-				color:#03A9F4;
-			}
-			.thank-you-pop a{
-				display: inline-block;
-				margin: 0 auto;
-				padding: 9px 20px;
-				color: #fff;
-				text-transform: uppercase;
-				font-size: 14px;
-				background-color: #8BC34A;
-				border-radius: 17px;
-			}
-			.thank-you-pop a i{
-				margin-right:5px;
-				color:#fff;
-			}
-			#ignismyModal .modal-header{
-				border:0px;
-			}
-			/*--thank you pop ends here--*/
+            /* Responsive Adjustments */
+            @media (max-width: 767px) {
+                body {
+                    padding-top: 70px;
+                }
+                .hero-section {
+                    min-height: 300px;
+                }
+                #thumb {
+                    width: 150px;
+                    height: 150px;
+                }
+                #sub_content h1 {
+                    font-size: 2.5rem;
+                }
+            }
 
+            /* Hide original header image container if it's not the hero */
+            #img-head-loja {
+                display: none;
+            }
+            
+            /* Original style overrides */
+            .parallax-window {
+                min-height: 0; /* Override base.css */
+            }
 
-
-			#img-head-loja{
-				background-image:url(<?=(!empty($img_header) ? $site."uploads/".$img_header : '');?>);
-				background-attachment:fixed;
-				background-size:100%;
-				background-repeat:no-repeat;
-				background-color:#000;
-			}
+			/* --- [END MODERN HEADER REDESIGN V12 - FINAL] --- */
 		</style>
-
-		<style type="text/css">
-
-			.switch {
-				position: relative;
-				margin: 5px auto;
-				width: 95%;
-				height: 40px;
-				border: 3px solid #34AF23;
-				color: #ffffff;
-				font-size: 15px;
-				border-radius: 10px;
-			}
-
-			.quality {
-				position: relative;
-				display: inline-block;
-				width: 50%;
-				height: 100%;
-				line-height: 40px;
-			}
-			.quality:first-child label {
-				border-radius: 5px 0 0 5px;
-			}
-			.quality:last-child label {
-				border-radius: 0 5px 5px 0;
-			}
-			.quality label {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				cursor: pointer;
-				font-style: italic;
-				text-align: center;
-				transition: transform 0.4s, color 0.4s, background-color 0.4s;
-			}
-			.quality input[type="radio"] {
-				appearance: none;
-				width: 0;
-				height: 0;
-				opacity: 0;
-			}
-			.quality input[type="radio"]:focus {
-				outline: 0;
-				outline-offset: 0;
-			}
-			.quality input[type="radio"]:checked ~ label {
-				background-color: #34AF23;
-				color: #ffffff;
-			}
-			.quality input[type="radio"]:active ~ label {
-				transform: scale(1.05);
-			}
-
-		</style>
-
-
 
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-
-
-
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'>
-
-
 
 		<!-- Radio and check inputs -->
 		<link href="<?= $site; ?>css/skins/square/grey.css" rel="stylesheet">
 		
-
-
-
 		<?php
 		if(!empty($_SESSION['userlogin'])):
 			?>
@@ -329,7 +283,6 @@ else:
 			<link href="<?= $site; ?>css/admin.css" rel="stylesheet">
 			<link href="<?= $site; ?>css/bootstrap3-wysihtml5.min.css" rel="stylesheet">
 			<link href="<?= $site; ?>css/dropzone.css" rel="stylesheet">
-
 
 			<link rel="stylesheet" type="text/css" href="<?= $site; ?>css/uploads/normalize.css" />
 			<link rel="stylesheet" type="text/css" href="<?= $site; ?>css/uploads/demo.css" />
@@ -344,158 +297,12 @@ else:
 		<link rel="stylesheet" type="text/css" href="<?= $site; ?>css/modal/popupmodal.css" />
 
 		<script src="<?= $site; ?>js/jquery-2.2.4.min.js"></script>
-
-		
-
 		<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-
-		<script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
-
-
-
-		<!--https://gao-sun.github.io/x0popup/-->
-		<link href="<?= $site; ?>css/x0popup-master/dist/x0popup.min.css" rel="stylesheet">
-		<script src="<?= $site; ?>css/x0popup-master/dist/x0popup.min.js"></script>
-
-		<script src="<?= $site; ?>js/jquery.gotop.js"></script>
-		<script type="text/javascript">	
-
-			$(document).ready(function () {
-
-				$.getJSON('<?=$site;?>estados_cidades.json', function (data) {
-
-					var items = [];
-					var options = '<option value="<?=(!empty($end_uf_empresa) ? $end_uf_empresa : "");?>"><?=(!empty($end_uf_empresa) ? $end_uf_empresa : "Escolha um estado");?></option>';	
-
-					$.each(data, function (key, val) {
-						options += '<option value="' + val.sigla + '">' + val.sigla + '</option>';
-					});					
-					$("#estados").html(options);				
-
-					$("#estados").change(function () {				
-
-						var options_cidades = '<option value="<?=(!empty($cidade_empresa) ? $cidade_empresa : "");?>"><?=(!empty($cidade_empresa) ? $cidade_empresa : "Escolha uma Cidade");?></option>';
-						var str = "";					
-
-						$("#estados option:selected").each(function () {
-							str += $(this).text();
-						});
-
-						$.each(data, function (key, val) {
-							if(val.sigla == str) {							
-								$.each(val.cidades, function (key_city, val_city) {
-									options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
-								});							
-							}
-						});
-
-						$("#cidades").html(options_cidades);
-
-					}).change();		
-
-				});
-
-			});
-
-		</script>
-
-		<script type="text/javascript">	
-
-			$(document).ready(function () {
-
-				$.getJSON('<?=$site;?>estados_cidades.json', function (data) {
-
-					var items = [];
-					var options = '<option value="">Selecione o Estado</option>';	
-
-					$.each(data, function (key, val) {
-						options += '<option value="' + val.sigla + '">' + val.sigla + '</option>';
-					});					
-					$("#estados2").html(options);				
-
-					$("#estados2").change(function () {				
-
-						var options_cidades = '';
-						var str = "";					
-
-						$("#estados2 option:selected").each(function () {
-							str += $(this).text();
-						});
-
-						$.each(data, function (key, val) {
-							if(val.sigla == str) {							
-								$.each(val.cidades, function (key_city, val_city) {
-									options_cidades += '<option value="' + val_city + '">' + val_city + '</option>';
-								});							
-							}
-						});
-
-						$("#cidades2").html(options_cidades);
-
-					}).change();		
-
-				});
-
-			});
-
-		</script>
-		<script src="<?= $site; ?>js/player.js"></script>
-		<script src="<?= $site; ?>js/howler.js"></script>
-
-		<link href="<?= $site; ?>notificacao/light-theme.min.css" rel="stylesheet">
-
-		<script type="text/javascript" src="<?= $site; ?>notificacao/growl-notification.min.js"></script> 
-
-
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JNKKKK/MoreToggles.css@0.2.1/output/moretoggles.min.css">
-
-		<!-- Select da pagina carrinho -->
-		<link href="<?=$site?>css/selectcarrinho/dist/css/select2.min.css" rel="stylesheet" />
-		<script src="<?=$site?>css/selectcarrinho/dist/js/select2.min.js"></script>
-		<!-- Select da pagina carrinho -->
-
-
-		<!-- Radio and check inputs -->
-		<link href="<?= $site; ?>css/radio-check.css" rel="stylesheet">
-		<link href="<?= $site; ?>css/modal.css" rel="stylesheet">
-		<script type="text/javascript" src="<?= $site; ?>js/modalhorarios.js"></script> 
-		<!-- https://www.cssscript.com/pure-css-checkbox-radio-button-replacement-bootstrap-icheck/ -->
-		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-		<link href="<?= $site; ?>css/chackbox/dist/css/checkboxes.css" rel="stylesheet">
-
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$('.remove_item').click(function(){
-					$('.remove_item').prop('disabled', true);
-
-					var id_item = $(this).data('id_item');
-					var rash_item = $(this).data('item_hash');
-
-					$.ajax({
-						url: '<?= $site; ?>includes/processaremovercart.php',
-						method: 'post',
-						data: {'iditem':id_item,'itemrash':rash_item, 'getpegaloja' : '<?=$Url[0];?>'},
-
-						success: function(data){
-							$('.remove_item').prop('disabled', false);
-							$('#updatesidebar').html(data);
-						}
-					});
-				});
-			});
-		</script>
-
 		
-		<script src="<?= $site; ?>css/multiselect/dist/bundle.min.js"></script>
-
-
-		<!-- MUDAR CORES DO TEMPLATE -->
-		<!--<link href="css/color_scheme.css" rel="stylesheet">-->
 	</head>
 
-	<body style="background: #e5ddd5 url(<?= $site; ?>img/body-bg.jpg) repeat center;">
+	<body>
 		<!-- inicio do loader -->
 		<div id="preloader">
 			<div class="sk-spinner sk-spinner-wave" id="status">
@@ -505,19 +312,14 @@ else:
 				<div class="sk-rect4"></div>
 				<div class="sk-rect5"></div>
 			</div>
-		</div> 
-
+		</div>
 
 <!--[if lte IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
 
-
-
 <!-- Header ================================================== -->
 <header <?php if(!empty($Url[1]) && $Url[1] != 'carrinho' && $Url[1] != 'home' && $Url[1] != 'contato' && file_exists('includes/'.$Url[1] . '.php')):?>style="background-color: #34af23;"<?php endif; ?>>
-	
-
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col--md-4 col-sm-4 col-xs-4">
@@ -536,8 +338,6 @@ else:
 					<ul>
 						<li><a href="<?=$site.$Url[0];?>"><?=$texto['home'];?></a></li>
 						<li><a href="<?=$site.$Url[0].'/';?>contato"><?=$texto['contato'];?></a></li>
-						
-
 						<?php if(!empty($_SESSION['userlogin'])):?>
 							<li><a href="<?=$site.$Url[0].'/';?>admin-loja"><?=$texto['Conf_loja'];?></a></li>
 							<li><a href="<?=$site.$Url[0].'/';?>view-item"><?=$texto['itens'];?></a></li>
@@ -558,8 +358,6 @@ else:
 							<li><a href="<?=$site.$Url[0].'/';?>login-senha"><?=$texto['login-senha'];?></a></li>
 							<li><a href="<?=$site.$Url[0].'/';?>admin-loja&logoff=true"><?=$texto['sair'];?></a></li>
 						<?php endif;?>
-
-
 					</ul>
 				</div><!-- End main-menu -->
 			</nav>
@@ -569,269 +367,206 @@ else:
 <!-- End Header =============================================== -->
 
 <!-- SubHeader =============================================== -->
-
 <?php
 if(!empty($Url[1]) && $Url[1] != 'carrinho' && $Url[1] != 'home' && $Url[1] != 'contato' && file_exists('includes/'.$Url[1] . '.php')):
 else:
 	?>
-	<?php
-	if(!$detect->isMobile()):	
-		?><section id="img-head-loja">
-			<?php else:?>
+    <!-- This is the new Hero Section -->
+	<section class="hero-section">
+        <div id="subheader">
+            <div id="sub_content">
 
-				<section class="parallax-window" data-parallax="scroll" data-image-src="<?=(!empty($img_header) ? $site."uploads/".$img_header : $site.'img/sub_header.jpg');?>" data-natural-width="1400" data-natural-height="470" style="background-image: url(<?=(!empty($img_header) ? $site."uploads/".$img_header : $site.'img/sub_header.jpg');?>); background-size: cover; background-position: center center;">
-				<?php endif; ?>
-				<div id="subheader">
-					<div id="sub_content">
+                <?php
+                if(!empty($img_logo)):
+                    echo "<div id=\"thumb\">".Check::Image("uploads/{$img_logo}", "Logo", 240, 240)."</div>";
+                else:
+                    echo "<div id=\"thumb\"><img src=\"{$site}img/thumb_restaurant.jpg\" alt=\"\"></div>";
+                endif;
+                ?>
+                <h1><?=(!empty($nome_empresa) ? $nome_empresa : 'Nome_do_seu_negócio');?></h1>
 
-						<?php
-						if(!empty($img_logo)):
-							echo "<div id=\"thumb\">".Check::Image("uploads/{$img_logo}", "Logo", 240, 240)."</div>";
-						else:
-							echo "<div id=\"thumb\"><img src=\"{$site}img/thumb_restaurant.jpg\" alt=\"\"></div>";
-						endif;
-						?>
-						<h1><?=(!empty($nome_empresa) ? $nome_empresa : 'Nome_do_seu_negócio');?></h1>
+                <?php
 
-						<?php
+                if(!empty($config_segunda)):
+                    $primeiroDia = explode(" ", $config_segunda);					
+                endif;
+                $mon_dia = (!empty($config_segunda) && $primeiroDia[0] == 'on' ? $primeiroDia[1] : '');
+    //---------------------------------------------------------------------------------
+                if(!empty($config_terca)):
+                    $segundoDia = explode(" ", $config_terca);
+                endif;
+                $tue_dia = (!empty($config_terca) && $segundoDia[0] == 'on' ? $segundoDia[1] : '');
+    //---------------------------------------------------------------------------------
+                if(!empty($config_quarta)):
+                    $terceiroDia = explode(" ", $config_quarta);
+                endif;
+                $wed_dia = (!empty($config_quarta) && $terceiroDia[0] == 'on' ? $terceiroDia[1] : '');
+    //---------------------------------------------------------------------------------
+                if(!empty($config_quinta)):
+                    $quartoDia = explode(" ", $config_quinta);
+                endif;
+                $thu_dia = (!empty($config_quinta) && $quartoDia[0] == 'on' ? $quartoDia[1] : '');
+    //---------------------------------------------------------------------------------
+                if(!empty($config_sexta)):
+                    $quintoDia = explode(" ", $config_sexta);
+                endif;
+                $fri_dia = (!empty($config_sexta) && $quintoDia[0] == 'on' ? $quintoDia[1] : '');
+    //---------------------------------------------------------------------------------
+                if(!empty($config_sabado)):
+                    $sextoDia = explode(" ", $config_sabado);
+                endif;
+                $sat_dia = (!empty($config_sabado) && $sextoDia[0] == 'on' ? $sextoDia[1] : '');
+    //---------------------------------------------------------------------------------
+                if(!empty($config_domingo)):
+                    $setimoDia = explode(" ", $config_domingo);
+                endif;
+                $sun_dia = (!empty($config_domingo) && $setimoDia[0] == 'on' ? $setimoDia[1] : '');
+                $hours = array(
+                    "mon" => array("{$mon_dia}"),
+                    "tue" => array("{$tue_dia}"),
+                    "wed" => array("{$wed_dia}"),
+                    "thu" => array("{$thu_dia}"),
+                    "fri" => array("{$fri_dia}"),
+                    "sat" => array("{$sat_dia}"),
+                    "sun" => array("{$sun_dia}")
+                );
+                $lerbanco->ExeRead("ws_datas_close", "WHERE user_id = :delivdata", "delivdata={$getu}");
+                $exceptions = array();
+                if($lerbanco->getResult()):
+                    foreach($lerbanco->getResult() as $dadosC):
+                        extract($dadosC);
+                        $i = explode('/', $data);
+                        $i = array_reverse($i);
+                        $i = implode("-", $i);							
 
-						if(!empty($config_segunda)):
-							$primeiroDia = explode(" ", $config_segunda);					
-						endif;
-						$mon_dia = (!empty($config_segunda) && $primeiroDia[0] == 'on' ? $primeiroDia[1] : '');
-			//---------------------------------------------------------------------------------
-						if(!empty($config_terca)):
-							$segundoDia = explode(" ", $config_terca);
-						endif;
-						$tue_dia = (!empty($config_terca) && $segundoDia[0] == 'on' ? $segundoDia[1] : '');
-			//---------------------------------------------------------------------------------
-						if(!empty($config_quarta)):
-							$terceiroDia = explode(" ", $config_quarta);
-						endif;
-						$wed_dia = (!empty($config_quarta) && $terceiroDia[0] == 'on' ? $terceiroDia[1] : '');
-			//---------------------------------------------------------------------------------
-						if(!empty($config_quinta)):
-							$quartoDia = explode(" ", $config_quinta);
-						endif;
-						$thu_dia = (!empty($config_quinta) && $quartoDia[0] == 'on' ? $quartoDia[1] : '');
-			//---------------------------------------------------------------------------------
-						if(!empty($config_sexta)):
-							$quintoDia = explode(" ", $config_sexta);
-						endif;
-						$fri_dia = (!empty($config_sexta) && $quintoDia[0] == 'on' ? $quintoDia[1] : '');
-			//---------------------------------------------------------------------------------
-						if(!empty($config_sabado)):
-							$sextoDia = explode(" ", $config_sabado);
-						endif;
-						$sat_dia = (!empty($config_sabado) && $sextoDia[0] == 'on' ? $sextoDia[1] : '');
-			//---------------------------------------------------------------------------------
-						if(!empty($config_domingo)):
-							$setimoDia = explode(" ", $config_domingo);
-						endif;
-						$sun_dia = (!empty($config_domingo) && $setimoDia[0] == 'on' ? $setimoDia[1] : '');
-						$hours = array(
-							"mon" => array("{$mon_dia}"),
-							"tue" => array("{$tue_dia}"),
-							"wed" => array("{$wed_dia}"),
-							"thu" => array("{$thu_dia}"), 
-							"fri" => array("{$fri_dia}"),
-							"sat" => array("{$sat_dia}"),
-							"sun" => array("{$sun_dia}")
-						);
-						$lerbanco->ExeRead("ws_datas_close", "WHERE user_id = :delivdata", "delivdata={$getu}");
-						$exceptions = array();
-						if($lerbanco->getResult()):
-							foreach($lerbanco->getResult() as $dadosC):
-								extract($dadosC);
-								$i = explode('/', $data);
-								$i = array_reverse($i);
-								$i = implode("-", $i);							
+                        if(isDateExpired($i, 1)):
+                            $exceptions["{$i}"] = array();							
+                        endif;
+                    endforeach;
+                endif;
 
-								if(isDateExpired($i, 1)):
-									$exceptions["{$i}"] = array();							
-								endif;
-							endforeach;
-						endif;
+                $config = array(
+                    'separator'     => ' - ',
+                    'join'          => ' and ',
+                    'format'        => 'g:ia',
+                    'overview_weekdays'  => array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
+                );
 
-						$config = array(
-							'separator'      => ' - ',
-							'join'           => ' and ',
-							'format'         => 'g:ia',
-							'overview_weekdays'  => array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
-						);
+            // Iniciando a classe
+                $store_hours = new StoreHours($hours, $exceptions, $config);
 
-					// Iniciando a classe
-						$store_hours = new StoreHours($hours, $exceptions, $config);
+                // Display open / closed menssagem
+                if($store_hours->is_open()) {
+                    echo "<div class='status-badge status-open'>{$texto['msg_aberto']}</div>";
+                } else {
+                    echo "<div class='status-badge status-closed'>{$texto['msg_fechado']}</div>";
+                }?>
+                
+            </div><!-- End sub_content -->
+        </div><!-- End subheader -->
+    </section><!-- End section -->
+<?php
+endif;
+?>
 
-						$dia_array = array('DOM','SEG','TER','QUA','QUI','SEX','SAB');
-
-					//tratar a data:
-					$hoje = strtotime(date('Y-m-j'));  // Y = ano, m = mês, j = dia
-					$diaDaSemana = date('w', $hoje); // w = 0 (para domingo) até 6 (para sábado)
-					$dia_nome  = $dia_array[$diaDaSemana]; 
-
-
-					$verhoje = date('Y-m-d');
-
-					if($dia_nome == 'DOM' && !empty($config_domingo) && $setimoDia[0] == 'on'):
-						if(array_key_exists($verhoje, $exceptions)):
-							//echo $texto['msg_fechado_dia'].'<br />';
-						else:
-							$domingoRay = explode("-", $sun_dia);
-							//echo $domingoRay[0]." {$texto['msg_ate']} ".$domingoRay[1].'<br />';
-						endif;
-					elseif($dia_nome == 'SEG' && !empty($config_segunda) && $primeiroDia[0] == 'on'):
-						if(array_key_exists($verhoje, $exceptions)):
-							//echo $texto['msg_fechado_dia'].'<br />';
-						else:
-							$segundaRay = explode("-", $mon_dia);
-							//echo $segundaRay[0]." {$texto['msg_ate']} ".$segundaRay[1].'<br />';
-						endif;
-					elseif($dia_nome == 'TER' && !empty($config_terca) && $segundoDia[0] == 'on'):
-						if(array_key_exists($verhoje, $exceptions)):
-							//echo $texto['msg_fechado_dia'].'<br />';
-						else:
-							$tercaRay = explode("-", $tue_dia);
-							//echo $tercaRay[0]." {$texto['msg_ate']} ".$tercaRay[1].'<br />';
-						endif;
-					elseif($dia_nome == 'QUA' && !empty($config_quarta) && $terceiroDia[0] == 'on'):
-						if(array_key_exists($verhoje, $exceptions)):
-							//echo $texto['msg_fechado_dia'].'<br />';
-						else:
-							$quartaRay = explode("-", $wed_dia);
-							//echo $quartaRay[0]." {$texto['msg_ate']} ".$quartaRay[1].'<br />';
-						endif;												
-					elseif($dia_nome == 'QUI' && !empty($config_quinta) && $quartoDia[0] == 'on'):
-						if(array_key_exists($verhoje, $exceptions)):
-							//echo $texto['msg_fechado_dia'].'<br />';
-						else:
-							$quintaRay = explode("-", $thu_dia);
-							//echo $quintaRay[0]." {$texto['msg_ate']} ".$quintaRay[1].'<br />';
-						endif;
-					elseif($dia_nome == 'SEX' && !empty($config_sexta) && $quintoDia[0] == 'on'):
-						if(array_key_exists($verhoje, $exceptions)):
-							//echo $texto['msg_fechado_dia'].'<br />';
-						else:
-							$sextaRay = explode("-", $fri_dia);
-							//echo $sextaRay[0]." {$texto['msg_ate']} ".$sextaRay[1].'<br />';
-						endif;
-					elseif($dia_nome == 'SAB' && !empty($config_sabado) && $sextoDia[0] == 'on'):
-						if(array_key_exists($verhoje, $exceptions)):
-							//echo $texto['msg_fechado_dia'].'<br />';
-						else:
-							$sabadoRay = explode("-", $sat_dia);
-							//echo $sabadoRay[0]." {$texto['msg_ate']} ".$sabadoRay[1].'<br />';
-						endif;
-					else:
-						//NÃO FAZ NADA!!
-					endif; 
-					 // Display open / closed menssagem
-					if($store_hours->is_open()) {
-						echo "<b style=\"border: 2px solid #86c953;background-color:#86c953;color:#ffffff;font-size:15px;font-weight:bold;border-radius:5px;\">{$texto['msg_aberto']}</b>";
-					} else {
-						echo "<b style=\"border: 2px solid red;padding:2px;background-color:red;color: #ffffff;font-size:15px;font-weight:bold;border-radius:5px;\">{$texto['msg_fechado']}</b>";
-					}?>
-					<br />
-					<br />
-					<a data-toggle="modal" data-target=".bd-example-modal-sm" style="color: #ffffff;font-size: 14px;cursor: pointer; text-decoration: none;"><i class="icon-clock-circled"></i> <?=$texto['msg_ver_horarios'];?> <i class="fa fa-chevron-down arrow-down"></i></a>
-
-					
-					&nbsp;&nbsp;
-
-					<a data-toggle="modal" data-target=".modal-horarios" style="color: #ffffff;font-size: 14px;cursor: pointer; text-decoration: none;"><i class="icon_pin"></i> Ver Endereços <i class="fa fa-chevron-down arrow-down"></i></a>
-
-				</div><!-- End sub_content -->
-			</div><!-- End subheader -->
-		</section><!-- End section -->
+<!-- ===== NEW INFO BAR ===== -->
+<div class="info-bar">
+    <div class="container">
+        <div class="info-container">
+            <div class="info-item">
+                <a href="#" data-toggle="modal" data-target=".bd-example-modal-sm" style="cursor: pointer;">
+                    <i class="icon-clock-circled"></i> <?=$texto['msg_ver_horarios'];?>
+                </a>
+            </div>
+            <div class="info-item">
+                 <a href="#" data-toggle="modal" data-target=".modal-horarios" style="cursor: pointer;">
+                    <i class="icon_pin"></i> Ver Endereços
+                 </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===== END INFO BAR ===== -->
 
 
-		<!-- End SubHeader ============================================ -->
+<!-- End SubHeader ============================================ -->
 
-		<div id="position">
-			<div class="container">
-				<ul>
-					<li><a class="navbar-icon restaurant-icon-19" href="<?=$site.$Url[0];?>"><?=(!empty($nome_empresa) ? $nome_empresa : 'Nome_do_seu_negócio');?> </a></li>
-					<?php if($Url[1] != null):?>
+<!-- This section is now removed -->
+<!-- 
+<div id="position">
+    ...
+</div>
+-->
 
-						<li><a href="<?=$site.$Url[0].'/'.$Url[1];?>"><?=$Url[1];?></a></li>
+<!-- Content ================================================== -->
+<div class="container margin_60_35">
+    <?php
+    
+    if(!empty($_SESSION['userlogin']) && $_SESSION['userlogin']['user_id'] == $getu):
+        $planoUser = $_SESSION['userlogin']['user_plano'];
+        $nomeplano = "";
+        $valorplano = "";
 
-						<?php else:?>
-							<li><a href="<?=$site.$Url[0];?>"><?=$texto['home'];?></a></li>
-						<?php endif; ?>
-					</ul>         
-				</div>				
-			</div><!-- Position -->
-		<?php endif; ?>
+        if($planoUser == 1):
+            $nomeplano = $texto['nomePlanoUm'];
+            $valorplano = "{$texto['valorPlanoUm']}.00";
+        elseif($planoUser == 2):
+            $nomeplano = $texto['nomePlanoDois'];
+            $valorplano = "{$texto['valorPlanoDois']}.00";
+        elseif($planoUser == 3):
+            $nomeplano = $texto['nomePlanoTres'];
+            $valorplano = "{$texto['valorPlanoTres']}.00";
+        endif;
 
-		<!-- Content ================================================== -->
-		<div class="container margin_60_35">
-			<?php
-			
-			if(!empty($_SESSION['userlogin']) && $_SESSION['userlogin']['user_id'] == $getu):
-				$planoUser = $_SESSION['userlogin']['user_plano'];
-				$nomeplano = "";
-				$valorplano = "";
+    endif;
 
-				if($planoUser == 1):
-					$nomeplano = $texto['nomePlanoUm'];
-					$valorplano = "{$texto['valorPlanoUm']}.00";
-				elseif($planoUser == 2):
-					$nomeplano = $texto['nomePlanoDois'];
-					$valorplano = "{$texto['valorPlanoDois']}.00";
-				elseif($planoUser == 3):
-					$nomeplano = $texto['nomePlanoTres'];
-					$valorplano = "{$texto['valorPlanoTres']}.00";
-				endif;
+    if(diasDatas(date('Y-m-d'), $empresa_data_renovacao) < 0 && !empty($_SESSION['userlogin']) && $_SESSION['userlogin']['user_id'] == $getu):
+        ?>
 
-			endif;
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> OBSERVAÇÃO: </strong>Seu plano expirou. Por favor renove a sua assinatura.
+        <form action="<?=$site;?>mercadopago/processapagamentomp.php" method="POST">
+            <script
+            src="https://www.mercadopago.com.br/integrations/v1/web-tokenize-checkout.js"
+            data-public-key="<?=$texto['publickey'];?>"				
+            data-button-label="Pagar assinatura"
+            data-transaction-amount="<?=$valorplano;?>"
+            data-summary-product-label="<?=$nomeplano;?>">
+        </script>
+    </form>
+</div>
 
-			if(diasDatas(date('Y-m-d'), $empresa_data_renovacao) < 0 && !empty($_SESSION['userlogin']) && $_SESSION['userlogin']['user_id'] == $getu):
-				?>
+<?php
+elseif(diasDatas(date('Y-m-d'), $empresa_data_renovacao) == 0 && !empty($_SESSION['userlogin']) && $_SESSION['userlogin']['user_id'] == $getu):
+?>
 
-			<div class="alert alert-danger alert-dismissible" role="alert">
-				<strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> OBSERVAÇÃO: </strong>Seu plano expirou. Por favor renove a sua assinatura.
-				<form action="<?=$site;?>mercadopago/processapagamentomp.php" method="POST">
-					<script
-					src="https://www.mercadopago.com.br/integrations/v1/web-tokenize-checkout.js"
-					data-public-key="<?=$texto['publickey'];?>"				
-					data-button-label="Pagar assinatura"
-					data-transaction-amount="<?=$valorplano;?>"
-					data-summary-product-label="<?=$nomeplano;?>">
-				</script>
-			</form>
-		</div>
-
-		<?php
-	elseif(diasDatas(date('Y-m-d'), $empresa_data_renovacao) == 0 && !empty($_SESSION['userlogin']) && $_SESSION['userlogin']['user_id'] == $getu):
-		?>
-
-	<div class="alert alert-danger alert-dismissible" role="alert">
-		<strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> OBSERVAÇÃO: </strong>Seu plano expira hoje.
-		<form action="<?=$site;?>mercadopago/processapagamentomp.php" method="POST">
-			<script
-			src="https://www.mercadopago.com.br/integrations/v1/web-tokenize-checkout.js"
-			data-public-key="<?=$texto['publickey'];?>"				
-			data-button-label="Pagar assinatura"
-			data-transaction-amount="<?=$valorplano;?>"
-			data-summary-product-label="<?=$nomeplano;?>">
-		</script>
-	</form>
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> OBSERVAÇÃO: </strong>Seu plano expira hoje.
+    <form action="<?=$site;?>mercadopago/processapagamentomp.php" method="POST">
+        <script
+        src="https://www.mercadopago.com.br/integrations/v1/web-tokenize-checkout.js"
+        data-public-key="<?=$texto['publickey'];?>"				
+        data-button-label="Pagar assinatura"
+        data-transaction-amount="<?=$valorplano;?>"
+        data-summary-product-label="<?=$nomeplano;?>">
+    </script>
+</form>
 </div>
 <?php
 
 elseif(diasDatas(date('Y-m-d'), $empresa_data_renovacao) >= 1 && diasDatas(date('Y-m-d'), $empresa_data_renovacao) < 4 && !empty($_SESSION['userlogin']) && $_SESSION['userlogin']['user_id'] == $getu):
-	?>
+?>
 
 <div class="alert alert-danger alert-dismissible" role="alert">
-	<strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> OBSERVAÇÃO: </strong>Seu plano expira em <?=diasDatas(date('Y-m-d'), $empresa_data_renovacao)?> dias.
-	<form action="<?=$site;?>mercadopago/processapagamentomp.php" method="POST">
-		<script
-		src="https://www.mercadopago.com.br/integrations/v1/web-tokenize-checkout.js"
-		data-public-key="<?=$texto['publickey'];?>"				
-		data-button-label="Pagar assinatura"
-		data-transaction-amount="<?=$valorplano;?>"
-		data-summary-product-label="<?=$nomeplano;?>">
-	</script>
+    <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> OBSERVAÇÃO: </strong>Seu plano expira em <?=diasDatas(date('Y-m-d'), $empresa_data_renovacao)?> dias.
+    <form action="<?=$site;?>mercadopago/processapagamentomp.php" method="POST">
+        <script
+        src="https://www.mercadopago.com.br/integrations/v1/web-tokenize-checkout.js"
+        data-public-key="<?=$texto['publickey'];?>"				
+        data-button-label="Pagar assinatura"
+        data-transaction-amount="<?=$valorplano;?>"
+        data-summary-product-label="<?=$nomeplano;?>">
+    </script>
 </form>
 </div>
 <?php
@@ -842,9 +577,9 @@ endif;
 <?php				
 
 if(file_exists('includes/'.$Url[1] . '.php')):
-	require 'includes/'.$Url[1] . '.php';
+    require 'includes/'.$Url[1] . '.php';
 else:
-	require 'includes/home.php';
+    require 'includes/home.php';
 endif;
 ?>
 </div><!-- End container -->
